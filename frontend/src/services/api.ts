@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://rent-system-backend-nfky.onrender.com/api',  // Replace with your backend URL
+  baseURL: 'http://localhost:5000/api',
 });
 
 // Request interceptor for automatically attaching the JWT
