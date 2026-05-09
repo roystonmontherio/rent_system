@@ -1,0 +1,63 @@
+src/App.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/owner/AddStayForm.tsx(31,6): error TS6196: 'PropertyFormValues' is declared but never used.
+src/components/owner/EditStayForm.tsx(1,33): error TS6133: 'useEffect' is declared but its value is never read.
+src/components/owner/EditStayForm.tsx(14,35): error TS6133: 'ImageIcon' is declared but its value is never read.
+src/components/owner/EditStayForm.tsx(32,6): error TS6196: 'EditFormValues' is declared but never used.
+src/layouts/OwnerLayout.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/pages/owner/ManageStays.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/owner/ManageStays.tsx(6,3): error TS6133: 'BadgeDollarSign' is declared but its value is never read.
+src/pages/owner/ManageStays.tsx(12,32): error TS2307: Cannot find module '../../components/owner/AssignBrokerDialog' or its corresponding type declarations.
+src/pages/owner/ManageStays.tsx(310,27): error TS2339: Property 'broker_id' does not exist on type 'Stay'.
+src/pages/owner/ManageStays.tsx(312,34): error TS2339: Property 'broker_name' does not exist on type 'Stay'.
+src/pages/owner/ManageStays.tsx(312,65): error TS2339: Property 'broker_id' does not exist on type 'Stay'.
+src/pages/owner/ManageStays.tsx(388,27): error TS2339: Property 'broker_id' does not exist on type 'Stay'.
+src/pages/owner/ManageStays.tsx(390,34): error TS2339: Property 'broker_name' does not exist on type 'Stay'.
+src/pages/owner/ManageStays.tsx(390,58): error TS2339: Property 'broker_id' does not exist on type 'Stay'.
+src/pages/owner/OwnerDashboard.tsx(6,12): error TS6133: 'MapPin' is declared but its value is never read.
+src/pages/owner/OwnerDashboard.tsx(9,32): error TS2307: Cannot find module '@/services/booking.service' or its corresponding type declarations.
+src/pages/owner/OwnerTeam.tsx(3,19): error TS6133: 'User' is declared but its value is never read.
+src/pages/owner/OwnerTeam.tsx(4,29): error TS2307: Cannot find module '@/services/user.service' or its corresponding type declarations.
+src/pages/owner/OwnerTeam.tsx(5,15): error TS2305: Module '"@/types/api.types"' has no exported member 'Broker'.
+src/pages/public/PropertyDetails.tsx(40,13): error TS6133: 'data' is declared but its value is never read.
+src/pages/shared/MessagesPage.tsx(2,58): error TS1149: File name 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/Card.tsx' differs from already included file name 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/card.tsx' only in casing.
+  The file is in the program because:
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/LoginPage.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/RegisterPage.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/public/LandingPage.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/public/ExplorePage.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/public/PropertyDetails.tsx'
+    Imported via '../../components/ui/Card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/shared/MessagesPage.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/owner/OwnerDashboard.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/owner/OwnerTeam.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/broker/BrokerDashboard.tsx'
+    Matched by include pattern 'src' in 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/tsconfig.app.json'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/broker/BrokerInbox.tsx'
+    Imported via '@/components/ui/card' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/owner/OwnerInbox.tsx'
+src/pages/shared/MessagesPage.tsx(3,23): error TS1149: File name 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/Input.tsx' differs from already included file name 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/input.tsx' only in casing.
+  The file is in the program because:
+    Imported via '@/components/ui/input' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/LoginPage.tsx'
+    Imported via '@/components/ui/input' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/RegisterPage.tsx'
+    Imported via '../../components/ui/Input' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/shared/MessagesPage.tsx'
+    Imported via '@/components/ui/input' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/owner/AddStayForm.tsx'
+    Imported via '@/components/ui/input' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/owner/EditStayForm.tsx'
+    Imported via "@/components/ui/input" from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/sidebar.tsx'
+    Matched by include pattern 'src' in 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/tsconfig.app.json'
+src/pages/shared/MessagesPage.tsx(4,24): error TS1149: File name 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/Button.tsx' differs from already included file name 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/button.tsx' only in casing.
+  The file is in the program because:
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/LoginPage.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/RegisterPage.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/layout/Navbar.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/public/LandingPage.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/public/ExplorePage.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/public/PropertyDetails.tsx'
+    Imported via '../../components/ui/Button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/shared/MessagesPage.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/owner/ManageStays.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/owner/AddStayForm.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/owner/EditStayForm.tsx'
+    Imported via "@/components/ui/button" from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/sidebar.tsx'
+    Imported via "@/components/ui/button" from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/sheet.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/layouts/OwnerLayout.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/pages/owner/OwnerDashboard.tsx'
+    Imported via '@/components/ui/button' from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/layouts/BrokerLayout.tsx'
+    Matched by include pattern 'src' in 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/tsconfig.app.json'
+    Imported via "@/components/ui/button" from file 'C:/Users/v/Desktop/rent_system/rent_system_v3/frontend/src/components/ui/dialog.tsx'
