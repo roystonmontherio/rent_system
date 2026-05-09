@@ -18,7 +18,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     if (user) {
-      const newSocket = io('http://localhost:5000'); // Replace with your backend URL
+      const newSocket = io('https://rent-system-backend-nfky.onrender.com'); // Replace with your backend URL
       
       newSocket.on('connect', () => {
         console.log('✅ Connected to WebSocket');
