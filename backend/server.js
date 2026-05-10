@@ -26,6 +26,33 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Rent System API is running' });
 });
+const { pool } = require('./src/config/db');
+app.get('/api/diagnostics', async (req, res) => {
+  // Check envs
+  const envs = {
+    DATABASE_URL: process.env.DATABASE_URL ? '✅ Set' : '❌ Missing',
+    JWT_SECRET: process.env.JWT_SECRET ? '✅ Set' : '❌ Missing',
+    JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN ? '✅ Set' : '❌ Missing',
+    FAST2SMS_API_KEY: process.env.FAST2SMS_API_KEY ? '✅ Set' : '❌ Missing',
+    FIREBASE_SERVICE_ACCOUNT: process.env.FIREBASE_SERVICE_ACCOUNT ? '✅ Set' : '❌ Missing',
+    NODE_ENV: process.env.NODE_ENV || '❌ Missing',
+    PORT: process.env.PORT || '❌ Missing',
+  };
+
+  // Check DB connection
+  let dbStatus;
+  try {
+    await pool.query('SELECT 1');
+    dbStatus = '✅ Connected';
+  } catch (err) {
+    dbStatus = `❌ Failed: ${err.message}`;
+  }
+
+  res.json({
+    envs,
+    database: dbStatus,
+  });
+});
 
 app.get("/health", (req, res) => res.send("OK"));
 // Mount Routes
