@@ -26,7 +26,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Rent System API is running' });
 });
-const { pool } = require('./src/config/db');
+const pool = require('./src/config/db');
 app.get('/api/diagnostics', async (req, res) => {
   // Check envs
   const envs = {
