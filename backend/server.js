@@ -47,7 +47,7 @@ app.use((err, req, res, next) => {
 
 // Start Server
 const PORT = process.env.PORT || 5000;
-console.log('Envs ' , process.env.DATABASE_UR)
+console.log('Envs ' , process.env.DATABASE_URL)
 const http = require('http');
 const { initSocket } = require('./src/config/socket');
 
