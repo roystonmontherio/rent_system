@@ -263,8 +263,8 @@ function SidebarTrigger({
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
       variant="ghost"
-      size="icon-sm"
-      className={cn(className)}
+      size="icon"
+      className={cn("h-10 w-10 [&>svg]:h-5 [&>svg]:w-5", className)}
       onClick={(event) => {
         onClick?.(event)
         toggleSidebar()

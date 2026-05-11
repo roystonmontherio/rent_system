@@ -34,6 +34,15 @@ const ConversationModel = {
     return rows[0];
   },
 
+  async findByStayAndUsers(stayId, initiatorId, recipientId) {
+    const query = `
+      SELECT * FROM conversations 
+      WHERE stay_id = $1 AND initiator_id = $2 AND recipient_id = $3
+    `;
+    const { rows } = await pool.query(query, [stayId, initiatorId, recipientId]);
+    return rows[0];
+  },
+
   async findByUserId(userId) {
     const query = `
       SELECT c.*, 

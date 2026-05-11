@@ -9,6 +9,14 @@ import { stayService } from '@/services/stay.service';
 import type { Stay } from '@/types/api.types';
 import AddStayForm from '../../components/owner/AddStayForm';
 import EditStayForm from '../../components/owner/EditStayForm';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 type ViewMode = 'list' | 'add' | 'edit';
 type DisplayMode = 'grid' | 'table';
@@ -19,6 +27,7 @@ export default function ManageStays() {
   const [viewMode, setViewMode] = useState<ViewMode>('list');
   const [displayMode, setDisplayMode] = useState<DisplayMode>('grid');
   const [editingStay, setEditingStay] = useState<Stay | null>(null);
+  const [deleteConfirmId, setDeleteConfirmId] = useState<number | null>(null);
   const [error, setError] = useState('');
   const [search, setSearch] = useState('');
 
@@ -35,11 +44,12 @@ export default function ManageStays() {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this property?')) return;
+  const confirmDelete = async () => {
+    if (!deleteConfirmId) return;
     try {
-      await stayService.deleteStay(id);
-      setStays(stays.filter((s) => s.id !== id));
+      await stayService.deleteStay(deleteConfirmId);
+      setStays(stays.filter((s) => s.id !== deleteConfirmId));
+      setDeleteConfirmId(null);
     } catch (err: any) {
       alert(err.response?.data?.error || 'Failed to delete property.');
     }
@@ -261,7 +271,7 @@ export default function ManageStays() {
                       <Pencil className="h-4 w-4" />
                     </button>
                     <button
-                      onClick={() => handleDelete(stay.id)}
+                      onClick={() => setDeleteConfirmId(stay.id)}
                       title="Delete"
                       className="h-9 w-9 rounded-full bg-red-500/80 backdrop-blur-sm border border-red-400/30 flex items-center justify-center text-white hover:bg-red-600 transition-colors"
                     >
@@ -319,7 +329,8 @@ export default function ManageStays() {
 
       {/* ── LIST / TABLE VIEW ──────────────────────────── */}
       {!loading && filtered.length > 0 && displayMode === 'table' && (
-        <div className="rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm bg-white dark:bg-gray-900">
+        <div className="rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm bg-white dark:bg-gray-900 overflow-x-auto">
+          <div className="min-w-[800px]">
           {/* Table header */}
           <div className="grid grid-cols-[64px_1fr_160px_120px_100px_100px] gap-4 px-5 py-3 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-100 dark:border-gray-800 text-xs font-semibold uppercase tracking-wider text-gray-500">
             <span>Photo</span>
@@ -406,7 +417,7 @@ export default function ManageStays() {
                       <Pencil className="h-4 w-4" />
                     </button>
                     <button
-                      onClick={() => handleDelete(stay.id)}
+                      onClick={() => setDeleteConfirmId(stay.id)}
                       title="Delete"
                       className="h-8 w-8 rounded-lg flex items-center justify-center text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
                     >
@@ -417,8 +428,29 @@ export default function ManageStays() {
               );
             })}
           </div>
+          </div>
         </div>
       )}
+
+      {/* Delete Confirmation Dialog */}
+      <Dialog open={deleteConfirmId !== null} onOpenChange={(isOpen) => !isOpen && setDeleteConfirmId(null)}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Delete Property</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete this property? This action cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-end gap-2 mt-4">
+            <Button variant="outline" onClick={() => setDeleteConfirmId(null)}>
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={confirmDelete}>
+              Delete Property
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+// ============================================
+// 🔄 Environment Switch
+// VITE_API_URL is set in frontend/.env
+// Local:      http://localhost:5000/api
+// Production: https://rent-system-backend-nfky.onrender.com/api
+// ============================================
 const api = axios.create({
-  baseURL: 'https://rent-system-backend-nfky.onrender.com/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
 });
 
 // Request interceptor for automatically attaching the JWT

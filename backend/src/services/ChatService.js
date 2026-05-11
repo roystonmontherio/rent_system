@@ -13,6 +13,7 @@ const ChatService = {
       throw new Error('You cannot start a conversation with yourself.');
     }
 
+    // ConversationModel.createConversation already checks if it exists and reactivates it if archived/declined
     const conv = await ConversationModel.createConversation(stayId, initiatorId, stay.listed_by_id);
     return conv;
   },

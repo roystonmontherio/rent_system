@@ -57,31 +57,31 @@ export default function LandingPage() {
         <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
 
         {/* Floating Property Images (Parallax effect) */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none hidden lg:block">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40 lg:opacity-100">
           {/* Top Left */}
-          <div className="absolute top-[10%] left-[8%] w-56 h-64 rounded-[2rem] overflow-hidden shadow-2xl -rotate-6 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Villa" className="w-full h-full object-cover" />
+          <div className="absolute top-[5%] lg:top-[10%] left-[2%] lg:left-[8%] w-32 lg:w-56 h-40 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-2xl -rotate-6 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto hidden sm:block">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Villa" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80' }} />
           </div>
           {/* Top Right */}
-          <div className="absolute top-[15%] right-[6%] w-64 h-72 rounded-[2rem] overflow-hidden shadow-2xl rotate-6 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Mansion" className="w-full h-full object-cover" />
+          <div className="absolute top-[10%] lg:top-[15%] right-[2%] lg:right-[6%] w-40 lg:w-64 h-48 lg:h-72 rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-2xl rotate-6 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto hidden sm:block">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Mansion" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80' }} />
           </div>
           {/* Bottom Left */}
-          <div className="absolute bottom-[10%] left-[12%] w-64 h-48 rounded-[2rem] overflow-hidden shadow-2xl -rotate-3 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto">
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Apartment" className="w-full h-full object-cover" />
+          <div className="absolute bottom-[20%] lg:bottom-[10%] left-[5%] lg:left-[12%] w-36 lg:w-64 h-28 lg:h-48 rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-2xl -rotate-3 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto hidden md:block">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Apartment" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1502672260266-1c1c24240f38?auto=format&fit=crop&w=800&q=80' }} />
           </div>
           {/* Bottom Right */}
-          <div className="absolute bottom-[5%] right-[15%] w-48 h-56 rounded-[2rem] overflow-hidden shadow-2xl rotate-12 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto">
-            <img src="https://images.unsplash.com/photo-1600607687931-ce8105fb9017?auto=format&fit=crop&w=800&q=80" alt="Interior" className="w-full h-full object-cover" />
+          <div className="absolute bottom-[15%] lg:bottom-[5%] right-[10%] lg:right-[15%] w-28 lg:w-48 h-36 lg:h-56 rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-2xl rotate-12 opacity-90 transform transition-transform duration-700 hover:rotate-0 hover:scale-105 border-4 border-white/40 dark:border-gray-800/40 pointer-events-auto hidden md:block">
+            <img src="https://images.unsplash.com/photo-1600607687931-ce8105fb9017?auto=format&fit=crop&w=800&q=80" alt="Interior" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80' }} />
           </div>
         </div>
 
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center mt-[-5vh]">
-          <div className="p-8 md:p-12 animate-in fade-in slide-in-from-bottom-8 duration-700 w-full">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6">
+          <div className="p-4 sm:p-8 md:p-12 animate-in fade-in slide-in-from-bottom-8 duration-700 w-full">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4 sm:mb-6">
               Find Your Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-[#09b4d6]">Stay</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-10 font-medium leading-relaxed px-2">
               Discover premium properties for rent, curated by top brokers and verified owners.
             </p>
             
@@ -196,7 +196,7 @@ export default function LandingPage() {
                     <Card className="overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 rounded-2xl bg-white dark:bg-gray-900 h-full flex flex-col">
                       <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-800">
                         {primaryImg
-                          ? <img src={primaryImg.image_url} alt={property.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          ? <img src={primaryImg.image_url} alt={property.title} onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80' }} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                           : <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">No image</div>
                         }
                         <div className="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">FEATURED</div>

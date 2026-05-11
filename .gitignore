@@ -1,6 +1,53 @@
+# ============================================
+# 📦 Dependencies
+# ============================================
 backend/node_modules
 frontend/node_modules
+
+# ============================================
+# 🔐 Environment / Secrets (NEVER commit these)
+# ============================================
 backend/.env
 frontend/.env
+frontend/.env.local
+# NOTE: frontend/.env.production is NOT gitignored
+# It only contains public URLs & client-side keys (no secrets)
+# Vercel uses it automatically during `vite build`
+# Template files ARE safe to commit
+!backend/.env.example
+!frontend/.env.example
+
+# ============================================
+# 📁 Uploads (user-generated content)
+# ============================================
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# ============================================
+# 🔧 Build artifacts
+# ============================================
+frontend/dist
+frontend/out.txt
+
+# ============================================
+# 📝 Logs
+# ============================================
+*.log
+npm-debug.log*
+
+# ============================================
+# 💻 IDE / OS
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# ============================================
+# 📓 Context / scratch files
+# ============================================
 frontend-context.md
 project-context copy.md
+backend/scratch*

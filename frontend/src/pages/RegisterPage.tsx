@@ -89,8 +89,10 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
+      const phoneNumber = formData.phone.startsWith('+') ? formData.phone : `+${formData.phone}`;
       const payload = {
-        ...formData
+        ...formData,
+        phone: phoneNumber
       };
       const response = await api.post('/auth/register', payload);
       login(response.data.user, response.data.token);

@@ -1,11 +1,32 @@
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Building2, MessageCircle, ArrowRight, TrendingUp, Users } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 import { Link } from 'react-router-dom';
+import api from '@/services/api';
 
 export default function OwnerDashboard() {
   const { user } = useAuthStore();
+  const [stats, setStats] = useState({
+    totalProperties: 0,
+    inboxRequests: 0,
+    activeConversations: 0,
+  });
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const { data } = await api.get('/users/stats');
+        if (data.success) {
+          setStats(data.stats);
+        }
+      } catch (err) {
+        console.error('Failed to fetch stats', err);
+      }
+    };
+    fetchStats();
+  }, []);
 
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -28,39 +49,39 @@ export default function OwnerDashboard() {
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white">12</div>
+            <div className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalProperties}</div>
             <p className="text-xs text-green-500 font-medium flex items-center mt-1">
-              <TrendingUp className="h-3 w-3 mr-1" /> +2 this month
+              Active listings in your portfolio
             </p>
           </CardContent>
         </Card>
 
         <Card className="border border-gray-200/60 dark:border-gray-800/60 shadow-xl rounded-[2rem] bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl hover:shadow-2xl transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-gray-500 dark:text-gray-400">Active Leads</CardTitle>
+            <CardTitle className="text-sm font-medium text-gray-500 dark:text-gray-400">Inbox Requests</CardTitle>
             <div className="h-10 w-10 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center">
               <MessageCircle className="h-5 w-5 text-purple-500" />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white">48</div>
+            <div className="text-3xl font-bold text-gray-900 dark:text-white">{stats.inboxRequests}</div>
             <p className="text-xs text-green-500 font-medium flex items-center mt-1">
-              <TrendingUp className="h-3 w-3 mr-1" /> +14% since last week
+              New chat requests waiting
             </p>
           </CardContent>
         </Card>
 
         <Card className="border border-gray-200/60 dark:border-gray-800/60 shadow-xl rounded-[2rem] bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl hover:shadow-2xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-gray-500 dark:text-gray-400">Assigned Brokers</CardTitle>
+            <CardTitle className="text-sm font-medium text-gray-500 dark:text-gray-400">Active Conversations</CardTitle>
             <div className="h-10 w-10 rounded-xl bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center">
               <Users className="h-5 w-5 text-amber-500" />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white">3</div>
+            <div className="text-3xl font-bold text-gray-900 dark:text-white">{stats.activeConversations}</div>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium flex items-center mt-1">
-              Currently active in your team
+              Ongoing chats with users
             </p>
           </CardContent>
         </Card>

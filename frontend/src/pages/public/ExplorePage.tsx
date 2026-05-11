@@ -644,6 +644,7 @@ export default function ExplorePage() {
                                   <img 
                                     src={img.image_url} 
                                     alt={`${property.title} - ${idx + 1}`} 
+                                    onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80' }}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                   />
                                 </div>
@@ -695,6 +696,11 @@ export default function ExplorePage() {
                         <div className="absolute bottom-3 left-3 bg-black/60 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full capitalize z-10">
                           {property.property_type}
                         </div>
+                        {property.listed_by_role && (
+                          <div className={`absolute bottom-3 right-3 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full capitalize z-10 shadow-md ${property.listed_by_role === 'owner' ? 'bg-blue-600/90' : 'bg-purple-600/90'}`}>
+                            By {property.listed_by_role}
+                          </div>
+                        )}
                       </div>
                       <CardContent className="p-4 flex-1 flex flex-col justify-between">
                         <div>

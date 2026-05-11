@@ -11,6 +11,14 @@ const SocketContext = createContext<SocketContextType>({ socket: null, connected
 
 export const useSocket = () => useContext(SocketContext);
 
+// ============================================
+// 🔄 Environment Switch
+// VITE_SOCKET_URL is set in frontend/.env
+// Local:      http://localhost:5000
+// Production: https://rent-system-backend-nfky.onrender.com
+// ============================================
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+
 export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuthStore();
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -18,7 +26,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     if (user) {
-      const newSocket = io('https://rent-system-backend-nfky.onrender.com'); // Replace with your backend URL
+      const newSocket = io(SOCKET_URL);
       
       newSocket.on('connect', () => {
         console.log('✅ Connected to WebSocket');
